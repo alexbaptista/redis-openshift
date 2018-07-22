@@ -41,8 +41,8 @@ function launchsentinel() {
 
   sentinel_conf=/redis-sentinel/sentinel.conf
 
-  echo "bind 0.0.0.0" > ${sentinel_conf}
-  echo "protected-mode no" > ${sentinel_conf}
+  #echo "bind 0.0.0.0" > ${sentinel_conf}
+  #echo "protected-mode no" > ${sentinel_conf}
   echo "sentinel monitor mymaster ${master} 6379 2" > ${sentinel_conf}
   echo "sentinel down-after-milliseconds mymaster 60000" >> ${sentinel_conf}
   echo "sentinel failover-timeout mymaster 180000" >> ${sentinel_conf}
