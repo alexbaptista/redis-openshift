@@ -14,6 +14,8 @@
 
 FROM centos:centos7
 
+ENV REDIS_PASSWORD default-password
+
 RUN yum install epel-release -y
 
 RUN yum install redis hostname -y ; yum clean all
