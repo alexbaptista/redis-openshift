@@ -19,7 +19,6 @@ function launchmaster() {
     echo "Redis master data doesn't exist, data won't be persistent!"
     mkdir /redis-master-data
   fi
-  echo "requirepass \"${REDIS_PASSWORD}\"" >> /redis-master/redis.conf
   redis-server /redis-master/redis.conf
 }
 
@@ -68,7 +67,6 @@ function launchslave() {
     echo "Connecting to master failed.  Waiting..."
     sleep 10
   done
-  echo "requirepass \"${REDIS_PASSWORD}\"" >> /redis-slave/redis.conf
   sed -i "s/%master-ip%/${master}/" /redis-slave/redis.conf
   sed -i "s/%master-port%/6379/" /redis-slave/redis.conf
   redis-server /redis-slave/redis.conf
