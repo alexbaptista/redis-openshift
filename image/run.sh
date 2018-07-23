@@ -14,8 +14,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-echo "requirepass \"${REDIS_PASSWORD}\"" >> /redis-master/redis.conf
-echo "requirepass \"${REDIS_PASSWORD}\"" >> /redis-slave/redis.conf
+echo -n "requirepass \"${REDIS_PASSWORD}\"" >> /redis-master/redis.conf
+echo -n "requirepass \"${REDIS_PASSWORD}\"" >> /redis-slave/redis.conf
 
 function launchmaster() {
   if [[ ! -e /redis-master-data ]]; then
